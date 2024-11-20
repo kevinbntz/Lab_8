@@ -1,0 +1,1 @@
+web: node mapboxtutorial-main/server.js
