@@ -1,1 +1,1 @@
-web: node mapboxtutorial-main/server.js
+web: node server.js
