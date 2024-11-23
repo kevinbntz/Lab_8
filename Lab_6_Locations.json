@@ -1,0 +1,177 @@
+[
+    {
+      "type": "Feature",
+      "properties": {
+        "Location Name": "Fulton Street",
+        "Address": "435 Fulton St",
+        "Artist": "Mos Def",
+        "Song Name": "Brooklyn",
+        "Song Year": 1999,
+        "Verse": "\"Yo, sometime I sit back, reflect on the place that I live at Unlike any place I ever been at The home of big gats, deep dish hammer rim caps Have a mishap, push ya wig back Where you go to get the fresh trim at Fulton and Jay got the Timb rack Blue collars metro carding it Thugs mobbing it, form partnership Increase armament, street pharmacist Deep consequence, when you seek sleek ornaments\"",
+        "Album": "Black on Both Sides",
+        "Year Referenced": "1980's-1990's",
+        "Memory Contrib Name": "",
+        "Contrib Q1": "",
+        "Contrib Q2": "",
+        "Contrib Q3": "",
+        "Embed Link": "",
+        "Media": "",
+        "Description": "Fulton street was a center for hip-hop culture and commerce etc. "
+      },
+      "geometry": {
+        "coordinates": [
+          -73.98752395445698,
+          40.69172421260177
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Location Name": "Albee Square Mall",
+        "Address": "551 Fulton Mall",
+        "Artist": "Biz Markee",
+        "Song Name": "Albee Square Mall",
+        "Verse": "\"I'm here to talk about the Albee Square Mall  A place where people shop in Downtown Brooklyn  Where I can be found if you\u2019re lookin...\"",
+        "Song Year": 1988,
+        "Year Referenced": 1988,
+        "Album": "Goin Off",
+        "Memory Contrib Name": "",
+        "Description": "Mall also referenced by Jay-Z and others"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.98262632605619,
+          40.689887076437685
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Location Name": "Country House Diner",
+        "Address": "887 Fulton St",
+        "Artist": "Notorious B.I.G. ",
+        "Song Name": "Big Poppa",
+        "Song Year": 1994,
+        "Verse": "\"Pull the truck up, front and roll up the next blunt So we can steam on the way to the telly go fill my belly A T bone steak, cheese eggs and Welch's grape Conversate for a few 'cause in a few, we gon' do What we came to do, ain't that right boo\"",
+        "Album": "Ready to Die",
+        "Year Referenced": "1980's-1990's",
+        "Description": "Meal referenced by Notorious BIG in Big Poppa - one of favorite restaurants"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.96766053130655,
+          40.6837904259838
+        ],
+        "type": "Point"
+      },
+      "id": 2
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Year Referenced": "1980's-1990's",
+        "Location Name": "Marcy Houses",
+        "Address": "452 Marcy Ave",
+        "Artist": "Jay-Z",
+        "Song Name": "Where I'm From",
+        "Song Year": 1997,
+        "Album": "In My Lifetime, Vol. I",
+        "Verse": "\"I'm from where the hammers rung,\u00a0news cameras never come\u2028 You and your mans hung in every verse in your rhyme\u2028 Where the grams was slung, niggas vanish every summer\u2028 When the blue vans would come, we throw the work in the can and run\u2028 Where the plans was to get funds and skate off the set\u2028 To achieve this goal quicker, sold all my weight wet\u2028 Faced with immeasurable odds, still I gave straight bets...  [Chorus]\u2028Cough up a lung,\u00a0where I'm from, Marcy son, ain't nothing nice\""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.95129696818798,
+          40.69742514949888
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Location Name": "Myrtle & Broadway",
+        "Address": "Myrtle & Broadway",
+        "Artist": "Mos Def",
+        "Song Name": "Mathematics",
+        "Song Year": 1999,
+        "Album": "Black on Both Sides",
+        "Year Referenced": 1999,
+        "Verse": "\"I'm blacker than midnight on Broadway and Myrtle Hip-Hop passed all your tall social hurdles Like the nationwide projects-prison-industry complex Working-class poor: better keep your alarm set Streets too loud to ever hear freedom ring Say evacuate your sleep, it's dangerous to dream\""
+      },
+      "geometry": {
+        "coordinates": [
+          -73.93528349411163,
+          40.69698997683048
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Year Referenced": "2000's",
+        "Location Name": "Flatbush Junction",
+        "Address": "Flatbush & Nostrand Ave",
+        "Artist": "Capital Steez",
+        "Song Name": "Vibe Ratings",
+        "Song Year": 2012,
+        "Verse": "\"Comin' live from Flatbush Junction and making it hard to function Breakin' down your sound systems and governmental corruption So, step aside pumpkin, quit jumpin' to assumptions The illest cats to ever rap, we spittin' crack on beats and claps Salvations? Ain't 'nything, I make that up for simple tracks\"",
+        "Album": "AmeriKKKan Koruption: Reloaded"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.94764215344274,
+          40.63280627226928
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Description": "",
+        "Location Name": "Biggie Smalls Childhood Home",
+        "Address": "226 Saint James Place",
+        "Artist": "Notorious B.I.G.",
+        "Song Name": "Juicy",
+        "Song Year": 1994,
+        "Verse": "\"Celebratin' every day, no more public housin' Thinkin' back on my one-room shack Now my mom pimps a Ac' with minks on her back And she loves to show me off of course Smiles every time my face is up in The Source We used to fuss when the landlord dissed us No heat, wonder why Christmas missed us Birthdays was the worst days Now we sip Champagne when we thirsty\"",
+        "Album": "Ready to Die",
+        "Year Referenced": "1980's"
+      },
+      "geometry": {
+        "coordinates": [
+          -73.96399416970529,
+          40.68355376252626
+        ],
+        "type": "Point"
+      },
+      "id": 6
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Verse": "\"We used to chill at Nkiru  her moms was a customer She used to love to buy the books  by Octavia Butler.\"",
+        "Year Referenced": "1980's-1990's",
+        "Location Name": "Nkiru Books",
+        "Address": "76 St. Mark's Ave",
+        "Artist": "Talib Kweli",
+        "Song Name": "Ms. Hill",
+        "Song Year": 2005,
+        "Album": "Right About Now: The Official Sucka Free Mix CD",
+        "Description": "Mos Def & Talib Kweli co-owned bookstore - original location at 76 St Mark's Ave. first black bookstore in brooklyn and 2nd in NYC. moved in 2000 when bought out by the pair - now online bookstore."
+      },
+      "geometry": {
+        "coordinates": [
+          -73.9746589165869,
+          40.67964696120558
+        ],
+        "type": "Point"
+      },
+      "id": 7
+    }
+  ]
