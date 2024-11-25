@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://admin2:admin2@cluster0.dpyrz.mongodb.net/Hip_Hop_Lyrics?retryWrites=true&w=majority&appName=Cluster0');
+mongoose.connect('mongodb+srv://admin2:admin2@cluster0.dpyrz.mongodb.net/Hip_Hop_Lyrics?retryWrites=true&w=majority');
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
