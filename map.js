@@ -16,7 +16,8 @@ map.on('load', () => {
   // Add a GeoJSON source with data from the API
   map.addSource('mongoLayer', {
     type: 'geojson',
-    data: 'http://localhost:3000/api/geojson' // Replace with your API endpoint
+    // data: 'http://localhost:3000/api/geojson' // Replace with your API endpoint
+    data: 'https://mapping-hip-hop-app-b84522a59d4d.herokuapp.com/api/geojson'
   });
 
   // Add a layer to display MongoDB data
