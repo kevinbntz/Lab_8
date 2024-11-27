@@ -45,3 +45,39 @@ app.get('/api/geojson', async (req, res) => {
   app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
   });
+
+// Form code
+const bodyParser = require('body-parser');
+
+// Middleware to parse form data
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+const formSchema = new mongoose.Schema({
+ name: { type: String, required: true },
+ lon: { type: Number, required: true },
+ lat: { type: Number, required: true },  
+ notes: { type: String }                 
+});
+
+const FormData = mongoose.model('FormData', formSchema);
+
+app.get('/form', (req, res) => {
+ res.sendFile(__dirname + '/form.html');
+});
+
+app.post('/submit', async (req, res) => {
+ const formData = new FormData({
+     name: req.body.name,
+     lon: req.body.lon,
+     lat: req.body.lat,
+     notes: req.body.notes || '' //
+ });
+
+ try {
+     await formData.save();
+     res.send('Location data saved to MongoDB!');
+ } catch (err) {
+     res.status(500).send('Error saving data');
+ }
+});
