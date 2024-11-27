@@ -22,5 +22,44 @@
 
        <button type="submit">Submit</button>
    </form>
+   
+   <!-- Mapbox JS -->
+   <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+   <script>
+   // ADD YOUR MAPBOX ACCESS TOKEN
+       mapboxgl.accessToken = "MAPBOX-ACCESS-TOKEN"
+      
+       // Initialize the map
+       const map = new mapboxgl.Map({
+           container: 'map', // Container ID
+           style: 'mapbox://styles/mapbox/streets-v11', // Map style
+           center: [0, 0], // Initial map center [lon, lat]
+           zoom: 2 // Initial zoom level
+       });
+
+       // Add map controls
+       map.addControl(new mapboxgl.NavigationControl());
+
+       // Marker for selected location
+       let marker;
+
+       // Click event to get coordinates
+       map.on('click', (e) => {
+           const lon = e.lngLat.lng;
+           const lat = e.lngLat.lat;
+
+           // Update form fields with coordinates
+           document.getElementById('lon').value = lon.toFixed(6);
+           document.getElementById('lat').value = lat.toFixed(6);
+
+           // Place or move marker on the map
+           if (marker) {
+               marker.setLngLat([lon, lat]);
+           } else {
+               marker = new mapboxgl.Marker().setLngLat([lon, lat]).addTo(map);
+           }
+       });
+   </script>
+
 </body>
 </html>
