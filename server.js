@@ -48,6 +48,7 @@ app.get('/api/geojson', async (req, res) => {
 
 // Form code
 const bodyParser = require('body-parser');
+const { title } = require('process');
 
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -55,9 +56,11 @@ app.use(bodyParser.json());
 
 const formSchema = new mongoose.Schema({
  name: { type: String, required: true },
+ title: { type: String, required: true},
+ artist: { type: String, required: true},
  lon: { type: Number, required: true },
  lat: { type: Number, required: true },  
- notes: { type: String }                 
+ lyrics: { type: String }                 
 });
 
 const FormData = mongoose.model('FormData', formSchema);
