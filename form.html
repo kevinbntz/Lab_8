@@ -12,8 +12,8 @@
             src: url('https://fonts.googleapis.com/css?family=Roboto Mono');
         }
        body {
-           font-family: 'Roboto Mono';
-           /* font-family: Arial, sans-serif; */
+           /* font-family: 'Roboto Mono'; */
+           font-family: Arial, sans-serif;
            background-color: black;
        }
        #map {
@@ -27,8 +27,14 @@
    <h1 style="color:white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Submit Your Location Data</h1>
    <div id="map"></div>
    <form action="/submit" method="POST">
-       <label for="name" style="color:white">Name:</label>
+       <label for="name" style="color:white">Location Name:</label>
        <input type="text" id="name" name="name" required><br><br>
+
+       <label for="title" style="color:white">Song Title:</label>
+       <input type="text" id="title" name="title" required><br><br>
+
+       <label for="artist" style="color:white">Artist:</label>
+       <input type="text" id="artist" name="artist" required><br><br>
 
        <label for="lon" style="color:white">Longitude:</label>
        <input type="number" step="any" id="lon" name="lon" required><br><br>
@@ -36,8 +42,8 @@
        <label for="lat" style="color:white">Latitude:</label>
        <input type="number" step="any" id="lat" name="lat" required><br><br>
 
-       <label for="notes" style="color:white">Notes:</label>
-       <textarea id="notes" name="notes"></textarea><br><br>
+       <label for="lyrics" style="color:white">Lyrics:</label>
+       <textarea id="lyrics" name="lyrics"></textarea><br><br>
 
        <button type="submit">Submit</button>
    </form>
