@@ -69,9 +69,11 @@ app.get('/form', (req, res) => {
 app.post('/submit', async (req, res) => {
  const formData = new FormData({
      name: req.body.name,
+     title: req.body.title,
+     artist: req.body.artist,
      lon: req.body.lon,
      lat: req.body.lat,
-     notes: req.body.notes || '' //
+     lyrics: req.body.lyrics || '' //
  });
 
  try {
