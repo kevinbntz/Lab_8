@@ -7,8 +7,14 @@
    <!-- Mapbox CSS -->
    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
    <style>
+        @font-face {
+            font-family: 'Roboto Mono';
+            src: url('https://fonts.googleapis.com/css?family=Roboto Mono');
+        }
        body {
-           font-family: Arial, sans-serif;
+           font-family: 'Roboto Mono';
+           /* font-family: Arial, sans-serif; */
+           background-color: black;
        }
        #map {
            width: 100%;
@@ -18,19 +24,19 @@
    </style>  
 </head>
 <body>
-   <h1>Submit Your Location Data</h1>
+   <h1 style="color:white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Submit Your Location Data</h1>
    <div id="map"></div>
    <form action="/submit" method="POST">
-       <label for="name">Name:</label>
+       <label for="name" style="color:white">Name:</label>
        <input type="text" id="name" name="name" required><br><br>
 
-       <label for="lon">Longitude:</label>
+       <label for="lon" style="color:white">Longitude:</label>
        <input type="number" step="any" id="lon" name="lon" required><br><br>
 
-       <label for="lat">Latitude:</label>
+       <label for="lat" style="color:white">Latitude:</label>
        <input type="number" step="any" id="lat" name="lat" required><br><br>
 
-       <label for="notes">Notes:</label>
+       <label for="notes" style="color:white">Notes:</label>
        <textarea id="notes" name="notes"></textarea><br><br>
 
        <button type="submit">Submit</button>
@@ -45,9 +51,9 @@
        // Initialize the map
        const map = new mapboxgl.Map({
            container: 'map', // Container ID
-           style: 'mapbox://styles/mapbox/streets-v11', // Map style
-           center: [0, 0], // Initial map center [lon, lat]
-           zoom: 2 // Initial zoom level
+           style: "mapbox://styles/kbenitez/cm2tclyo1000001pa7olh0953", // Map style
+           center: [-73.9442, 40.6482], // Initial map center [lon, lat]
+           zoom: 10 // Initial zoom level
        });
 
        // Add map controls
