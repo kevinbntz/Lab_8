@@ -27,7 +27,7 @@ map.on('load', () => {
     source: 'mongoLayer',
     paint: {
       'circle-radius': 7,
-      'circle-color': '#007cbf'
+      'circle-color': '#ff0000'
     }
   });
 
