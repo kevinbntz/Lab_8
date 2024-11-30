@@ -45,11 +45,12 @@ map.on('load', () => {
     // Extract the coordinate and properties of the hovered point
     const coordinates = e.features[0].geometry.coordinates.slice();
     const properties = e.features[0].properties;
+    const location = properties['Location Name'];
 
     // Set the content of the pop-up
     popup.setLngLat(coordinates)
-         .setHTML(`<h3>${properties.name || 'Unknown Location'}</h3>
-          <p>${properties.notes || 'No additional information'}</p>`)
+         .setHTML(`<h3>${location || 'Unknown Location'}</h3>
+          <p>${properties.Verse || 'Unknown Lyrics'}</p>`)
           .addTo(map);
   });
 
