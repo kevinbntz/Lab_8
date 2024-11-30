@@ -30,5 +30,35 @@ map.on('load', () => {
       'circle-color': '#007cbf'
     }
   });
+
+  // Create a pop-up instance
+  const popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+  });
+
+  // Add mouseenter event to shot the pop-up
+  map.on('mouseenter', 'mongoLayer', (e) => {
+    // Change the cursor to a pointer to indicate interactivity
+    map.getCanvas().style.cursor = 'pointer';
+
+    // Extract the coordinate and properties of the hovered point
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const properties = e.features[0].properties;
+
+    // Set the content of the pop-up
+    popup.setLngLat(coordinates)
+         .setHTML(`<h3>${properties.name || 'Unknown Location'}</h3>
+          <p>${properties.notes || 'No additional information'}</p>`)
+          .addTo(map);
+  });
+
+  // Add mouseleave event to remove the pop-up
+  map.on('mouseleave', 'mongoLayer', () => {
+    // Reset the cursor style
+    map.getCanvas().style.cursor = '';
+    // Remove the pop-up
+    popup.remove();
+  });
 });
   
