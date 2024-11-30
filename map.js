@@ -32,7 +32,7 @@ map.on('load', () => {
   });
 
   // Create a pop-up instance
-  const popup = new mapboxgl.Popup({
+  const popup = new mapboxgl.popup({
     closeButton: false,
     closeOnClick: false
   });
