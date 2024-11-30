@@ -26,13 +26,13 @@ map.on('load', () => {
     type: 'circle', // Options: 'circle', 'line', 'fill'
     source: 'mongoLayer',
     paint: {
-      'circle-radius': 5,
+      'circle-radius': 7,
       'circle-color': '#007cbf'
     }
   });
 
   // Create a pop-up instance
-  const popup = new mapboxgl.popup({
+  const popup = new mapboxgl.Popup({
     closeButton: false,
     closeOnClick: false
   });
