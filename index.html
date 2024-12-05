@@ -9,11 +9,163 @@
       href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css"
       rel="stylesheet"
     />
-    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
+    <title>Mapping Hip-Hop</title>
 </head>
 <body>
-    <div id="map"></div>
-    <script src="./map.js"></script>
-    hello
+<style>
+
+  .rubik-mono-one-regular {
+      font-family: "Rubik Mono One", monospace;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+
+  .roboto-mono-regular {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+
+  .map-overlay-container {
+    position: absolute;
+    background-color: black;
+    width: 520px;
+    top: 20px;
+    left: -570px;
+    padding: 10px;
+    z-index: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .map-overlay {
+    color: white;
+    font:
+      12px/20px 'Helvetica Neue',
+      Arial,
+      Helvetica,
+      sans-serif;
+    background-color: black;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .map-overlay-container.visible {
+    left: 20px;
+  }
+
+  /* .rounded-rect {
+    background: black;
+    border-radius: 10px;
+    box-shadow: 0 0 50px -25px black;
+  }
+
+  .flex-center {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex-center.left {
+    left: 0px;
+  }
+
+  .flex-center.right {
+    right: 0px;
+  }
+
+  .sidebar-content {
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    color: gray;
+  }
+
+  .sidebar-toggle {
+    position: absolute;
+    width: 1.3em;
+    height: 1.3em;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+
+  /* .sidebar-toggle.left {
+    right: -1.5em;
+  }
+
+  .sidebar-toggle.right {
+    left: -1.5em;
+  }
+
+  .sidebar-toggle:hover {
+    color: #0aa1cf;
+    cursor: pointer;
+  }
+
+  .sidebar {
+    transition: transform 1s;
+    z-index: 1;
+    width: 300px;
+    height: 100%;
+  }
+
+  .left.collapsed {
+    transform: translateX(-295px);
+  }
+
+  .right.collapsed {
+    transform: translateX(295px);
+  } */
+</style>
+
+<!-- <div id="map">
+  <div id="left" class="sidebar flex-center left collapsed">
+    <div class="sidebar-content rounded-rect flex-center">
+      Left sidebar
+      <div class="sidebar-toggle rounded-rect left" onclick="toggleSidebar('left')">
+        &rarr;
+      </div>
+    </div>
+  </div>
+  <div id="right" class="sidebar flex-center right collapsed">
+    <div class="sidebar-content rounded-rect flex-center">
+      Right sidebar
+      <div class="sidebar-toggle rounded-rect right" onclick="toggleSidebar('right')">
+        &larr;
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div id="map"></div>
+
+<div id="container" class="map-overlay-container">
+  <div id="overlay" class="map-overlay">
+  </div>
+</div>
+
+<script src="./map.js">
+
+</script>
+
 </body>
 </html>

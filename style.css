@@ -3,6 +3,27 @@ body {
     margin: 0;
 }
 
+h1 {
+    font-family: "Rubik Mono One";
+    font-size: medium;
+    color: black;
+}
+
+h3 {
+    font-family: "Rubik Mono One";
+    font-size: x-large;
+    color: white;
+}
+
+h4 {
+    font-family: "Rubik Mono One";
+    color: gray;
+}
+
+p {
+    font-family: "Roboto Mono";
+    color: white;
+}
 
 #map {
     width: 100vw;

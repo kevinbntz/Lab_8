@@ -11,6 +11,17 @@ const map = new mapboxgl.Map({
     projection: "globe", // display the map as a 3D globe
   });
 
+// function toggleSidebar(id) {
+//   const elem = document.getElementById(id);
+//   const collapsed = elem.classList.toggle('collapsed');
+//   const padding = {};
+//   padding[id] = collapsed ? 0 : 300;
+//   map.easeTo({
+//     padding: padding,
+//     duration: 1000
+//   });
+// };
+
 // Added part
 map.on('load', () => {
   // Add a GeoJSON source with data from the API
@@ -37,7 +48,7 @@ map.on('load', () => {
     closeOnClick: false
   });
 
-  // Add mouseenter event to shot the pop-up
+  // Add mouseenter event to show the pop-up
   map.on('mouseenter', 'mongoLayer', (e) => {
     // Change the cursor to a pointer to indicate interactivity
     map.getCanvas().style.cursor = 'pointer';
@@ -49,8 +60,7 @@ map.on('load', () => {
 
     // Set the content of the pop-up
     popup.setLngLat(coordinates)
-         .setHTML(`<h3>${location || 'Unknown Location'}</h3>
-          <p>${properties.Verse || 'Unknown Lyrics'}</p>`)
+         .setHTML(`<h1>${location || 'Unknown Location'}</h1>`)
           .addTo(map);
   });
 
@@ -61,5 +71,50 @@ map.on('load', () => {
     // Remove the pop-up
     popup.remove();
   });
+
+});
+
+// Open Overlay
+map.on('click', 'mongoLayer', (e) => {
+  const coordinates = e.features[0].geometry.coordinates.slice();
+  map.easeTo({
+    center: coordinates,
+    zoom: 12,
+    duration: 1000
+  })
+  const properties = e.features[0].properties;
+  const location = properties['Location Name'];
+  const artist = properties['Artist'];
+  const title = properties['Song Name'];
+  const year = properties['Song Year'];
+  const reference = properties['Year Referenced'];
+  const verse = properties.Verse;
+  const verseEscaped = verse.replace(/\n/g, '<br>');
+  const description = properties.Description;
+  const embed = properties['Embed Link'];
+    
+  const overlay = document.getElementById('container');
+  // overlay.innerHTML = `<h3>${location || 'Unknown Location'}</h3>
+  //                      <h4>${reference}</h4>
+  //                      <p>${verse || 'Unknown Lyrics'}</p>
+  //                      <p>- ${artist}, "${title}"</p>
+  //                      <iframe ${embed}></iframe>`
+  overlay.innerHTML = `<h3>${location || 'Unknown Location'}</h3>
+                       <h4>${reference}</h4>
+                       <p>${verseEscaped || 'Unknown Lyrics'}</p>
+                       <p>- ${artist}, "${title}"</p>`+
+                      // `<p>${embed || 'No Embed'}</p>`
+                      `<iframe `+ embed +` />`
+  overlay.classList.add('visible');
+});
+
+// Close Overlay
+map.on('click', (e) => {
+  const features = map.queryRenderedFeatures(e.point, { layers: ['mongoLayer']});
+
+  if (!features.length) {
+    const overlay = document.getElementById('container');
+    overlay.classList.remove('visible');
+  }
 });
   
