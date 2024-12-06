@@ -153,7 +153,7 @@
         "Album": "Ready to Die",
         "Year Referenced": "1980's",
         "Embed Link": "src=\"https://embed.tidal.com/tracks/40453250\" width=\"500\" height=\"120\" allow=\"encrypted-media\" sandbox=\"allow-same-origin allow-scripts allow-forms allow-popups\" title=\"TIDAL Embed Player\"",
-        "Media": "images/biggie-smalls-childhood-home.jpg"
+        "Media": "/images/biggie-smalls-childhood-home.jpg"
       },
       "geometry": {
         "coordinates": [
