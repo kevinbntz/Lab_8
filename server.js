@@ -60,7 +60,11 @@ const formSchema = new mongoose.Schema({
  artist: { type: String, required: true},
  lon: { type: Number, required: true },
  lat: { type: Number, required: true },  
- lyrics: { type: String }                 
+ lyrics: { type: String },
+ Q1: { type: String },
+ Q2: { type: String },
+ Q3: { type: String },
+ Q4: { type: String }               
 });
 
 const FormData = mongoose.model('FormData', formSchema);
@@ -76,7 +80,11 @@ app.post('/submit', async (req, res) => {
      artist: req.body.artist,
      lon: req.body.lon,
      lat: req.body.lat,
-     lyrics: req.body.lyrics || '' //
+     lyrics: req.body.lyrics || '', //
+     Q1: req.body.Q1 || '',
+     Q2: req.body.Q2 || '', 
+     Q3: req.body.Q3 || '',
+     Q4: req.body.Q4 || ''
  });
 
  try {
