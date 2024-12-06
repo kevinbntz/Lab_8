@@ -7,6 +7,7 @@ const map = new mapboxgl.Map({
     // style: "mapbox://styles/kbenitez/cm1jtlviw004a01pdb4x7btn4", //YOUR STYLE URL
     style: "mapbox://styles/kbenitez/cm2tclyo1000001pa7olh0953", //HAND DRAWN
     center: [-73.9442, 40.6482], // starting position [lng, lat] (google brooklyn)
+    pitch: 60,
     zoom: 11, // starting zoom (adjust it as you wish)
     projection: "globe", // display the map as a 3D globe
   });
@@ -218,12 +219,13 @@ map.on('load', () => {
 map.on('click', 'mongoLayer', (e) => {
   // get marker coordinates
   const coordinates = e.features[0].geometry.coordinates.slice();
+
   // zoom to marker
-  map.easeTo({
-    center: coordinates,
-    zoom: 12,
-    duration: 1000
-  })
+  // map.easeTo({
+  //   center: coordinates,
+  //   zoom: 14,
+  //   duration: 1000
+  // })
 
   // pulsing dot
   // map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
@@ -260,6 +262,7 @@ map.on('click', 'mongoLayer', (e) => {
   const title = properties['Song Name'];
   const year = properties['Song Year'];
   const reference = properties['Year Referenced'];
+  const media = properties.Media;
   const verse = properties.Verse;
   const verseEscaped = verse.replace(/\n/g, '<br>');
   const description = properties.Description;
@@ -274,11 +277,22 @@ map.on('click', 'mongoLayer', (e) => {
   //                      <iframe ${embed}></iframe>`
   overlay.innerHTML = `<h3>${location || 'Unknown Location'}</h3>
                        <h4>${reference}</h4>
+                       <img src="${media}" width="500" height="auto" />
                        <p>${verseEscaped || 'Unknown Lyrics'}</p>
                        <p>- ${artist}, "${title}"</p>`+
                       // `<p>${embed || 'No Embed'}</p>`
                       `<iframe `+ embed +` />`
   overlay.classList.add('visible');
+  const visible = overlay.classList.contains('visible');
+  const padding = visible ? 0 : 500; // 500 if visible, 0 otherwise
+
+  // Zoom to marker
+  map.easeTo({
+    center: coordinates,
+    zoom: 14,
+    duration: 1000
+  })
+
 });
 
 // Close Overlay
