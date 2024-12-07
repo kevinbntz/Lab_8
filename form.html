@@ -6,14 +6,20 @@
    <title>Submit Data</title>
    <!-- Mapbox CSS -->
    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
    <style>
-        @font-face {
-            font-family: 'Roboto Mono';
-            src: url('https://fonts.googleapis.com/css?family=Roboto Mono');
-        }
+
        body {
-           /* font-family: 'Roboto Mono'; */
-           font-family: Arial, sans-serif;
+           font-family: 'Roboto Mono';
+           /* font-family: Arial, sans-serif; */
            background-color: black;
        }
        #map {
@@ -21,11 +27,25 @@
            height: 400px;
            margin-bottom: 20px;
        }
+       textarea {
+        width: 80%;
+       }
+       #submit {
+            background-color: black;
+            color: white;
+            font-family: "Rubik Mono One";
+            font-size: larger;
+            padding: 10px;
+            border-color: white;
+            display: block;
+            margin: auto;
+       }
    </style>  
 </head>
 <body>
-   <h1 style="color:white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Submit Your Location Data</h1>
-   <div id="map"></div>
+   <!-- <h1 style="color:white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Submit Your Location Data Local</h1> -->
+   <!-- <p id="messageDisplay" style="color: white;">No message received yet</p> -->
+   <!-- <div id="map"></div> -->
    <form action="/submit" method="POST">
        <label for="name" style="color:white">Location Name:</label>
        <input type="text" id="name" name="name" required><br><br>
@@ -42,61 +62,81 @@
        <label for="lat" style="color:white">Latitude:</label>
        <input type="number" step="any" id="lat" name="lat" required><br><br>
 
-       <label for="lyrics" style="color:white">Lyrics:</label>
-       <textarea id="lyrics" name="lyrics"></textarea><br><br>
+       <label for="lyrics" style="color:white">Lyrics:</label><br>
+       <textarea id="lyrics" name="lyrics" rows="4"></textarea><br><br>
 
-       <label for="Q1" style="color:white">What about this place do you think allowed it to contribute to hip-hop history?:</label>
-       <textarea id="Q1" name="Q1"></textarea><br><br>
+       <label for="Q1" style="color:white">What about this place do you think allowed it to contribute to hip-hop history?:</label><br>
+       <textarea id="Q1" name="Q1" rows="3"></textarea><br><br>
 
-       <label for="Q2" style="color:white">Do you have a personal connection or memory tied to this place? If so, please describe.:</label>
-       <textarea id="Q2" name="Q2"></textarea><br><br>
+       <label for="Q2" style="color:white">Do you have a personal connection or memory tied to this place? If so, please describe.:</label><br>
+       <textarea id="Q2" name="Q2" rows="3"></textarea><br><br>
 
-       <label for="Q3" style="color:white">What are some differences you notice between what the artist describes, and what this place is like now?:</label>
-       <textarea id="Q3" name="Q3"></textarea><br><br>
+       <label for="Q3" style="color:white">What are some differences you notice between what the artist describes, and what this place is like now?:</label><br>
+       <textarea id="Q3" name="Q3" rows="3"></textarea><br><br>
 
-       <label for="Q4" style="color:white">Observing this place now, are you surprised that this lyric was written? Why or why not?:</label>
-       <textarea id="Q4" name="Q4"></textarea><br><br>
+       <label for="Q4" style="color:white">Observing this place now, are you surprised that this lyric was written? Why or why not?:</label><br>
+       <textarea id="Q4" name="Q4" rows="3"></textarea><br><br>
 
-       <button type="submit">Submit</button>
+       <p style="display: block; margin: auto; color: yellow;">Make sure to close window after submitting.</p><br>
+       <button id="submit" type="submit">Submit</button>
    </form>
+   </body>
+   
 
    <!-- Mapbox JS -->
    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
    <script>
    // ADD YOUR MAPBOX ACCESS TOKEN
-       mapboxgl.accessToken = "pk.eyJ1Ijoia2Jlbml0ZXoiLCJhIjoiY20xanRkNDJjMDU2bDJpb2tkaTltN2R5NiJ9.LHpehjaR0swXOUvk8D5F9w";
+    //    mapboxgl.accessToken = "pk.eyJ1Ijoia2Jlbml0ZXoiLCJhIjoiY20xanRkNDJjMDU2bDJpb2tkaTltN2R5NiJ9.LHpehjaR0swXOUvk8D5F9w";
       
-       // Initialize the map
-       const map = new mapboxgl.Map({
-           container: 'map', // Container ID
-           style: "mapbox://styles/kbenitez/cm2tclyo1000001pa7olh0953", // Map style
-           center: [-73.9442, 40.6482], // Initial map center [lon, lat]
-           zoom: 10 // Initial zoom level
-       });
+    //    // Initialize the map
+    //    const map = new mapboxgl.Map({
+    //        container: 'map', // Container ID
+    //        style: "mapbox://styles/kbenitez/cm2tclyo1000001pa7olh0953", // Map style
+    //        center: [-73.9442, 40.6482], // Initial map center [lon, lat]
+    //        zoom: 10 // Initial zoom level
+    //    });
 
-       // Add map controls
-       map.addControl(new mapboxgl.NavigationControl());
+    //    // Add map controls
+    //    map.addControl(new mapboxgl.NavigationControl());
 
-       // Marker for selected location
-       let marker;
+    //    // Marker for selected location
+    //    let marker;
 
-       // Click event to get coordinates
-       map.on('click', (e) => {
-           const lon = e.lngLat.lng;
-           const lat = e.lngLat.lat;
+    //    // Click event to get coordinates
+    //    map.on('click', (e) => {
+    //        const lon = e.lngLat.lng;
+    //        const lat = e.lngLat.lat;
 
-           // Update form fields with coordinates
-           document.getElementById('lon').value = lon.toFixed(6);
-           document.getElementById('lat').value = lat.toFixed(6);
+    //        // Update form fields with coordinates
+    //        document.getElementById('lon').value = lon.toFixed(6);
+    //        document.getElementById('lat').value = lat.toFixed(6);
 
-           // Place or move marker on the map
-           if (marker) {
-               marker.setLngLat([lon, lat]);
-           } else {
-               marker = new mapboxgl.Marker().setLngLat([lon, lat]).addTo(map);
-           }
+    //        // Place or move marker on the map
+    //        if (marker) {
+    //            marker.setLngLat([lon, lat]);
+    //        } else {
+    //            marker = new mapboxgl.Marker().setLngLat([lon, lat]).addTo(map);
+    //        }
+    //    });
+
+       // Listen for the message from the parent 
+       window.addEventListener('message', (event) => {
+        // Assuming the message contains the data you need to prefill
+        const data = event.data;
+        
+        // For testing receiving messages
+        // const messageDisplay = document.getElementById('messageDisplay');
+        // messageDisplay.textContent = 'Message received';
+
+        //prefill the form with the received data
+        if (data.location) document.getElementById('name').value = data.location;
+        if (data.title) document.getElementById('title').value = data.title;
+        if (data.artist) document.getElementById('artist').value = data.artist;
+        if (data.lon) document.getElementById('lon').value = data.lon;
+        if (data.lat) document.getElementById('lat').value = data.lat;
        });
    </script>
 
-</body>
+<!-- </body> -->
 </html>

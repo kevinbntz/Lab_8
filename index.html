@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="./style.css" />
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
     <link
@@ -23,6 +24,16 @@
 <body>
 <style>
 
+  .material-icons-regular {
+    font-family: "Material Icons";
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 700,
+    'GRAD' 0,
+    'opsz' 24;
+    font-size: 60;
+  }
+
   .rubik-mono-one-regular {
       font-family: "Rubik Mono One", monospace;
       font-weight: 400;
@@ -41,127 +52,138 @@
   .map-overlay-container {
     position: absolute;
     background-color: black;
-    width: 520px;
+    width: 420px;
     height: 650px;
-    top: 20px;
-    left: -570px;
-    padding: 10px;
+    top: 5px;
+    left: -440px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
     z-index: 1;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
+    border-radius: 5px;
     transition: left 0.3s ease-in-out;
     overflow: auto;
   }
 
-  .map-overlay {
-    color: white;
-    font:
-      12px/20px 'Helvetica Neue',
-      Arial,
-      Helvetica,
-      sans-serif;
+  .map-overlay-form {
+    position: absolute;
     background-color: black;
-    border-radius: 3px;
-    padding: 10px;
+    width: 420px;
+    height: 650px;
+    top: 5px;
+    right: -440px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    z-index: 1;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    transition: right 0.3s ease-in-out;
+    overflow: auto;
+  }
+
+  .map-show-player {
+    position: absolute;
+    background-color: black;
+    top: 5px;
+    left: 48.5%;
+    transition: top 0.3s ease-in-out;
+    border-radius: 10px;
+    display: block;
+    z-index: 1;
+  }
+
+  .map-overlay-player {
+    position: absolute;
+    background-color: black;
+    top: -400px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    z-index: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: top 0.3s ease-in-out;
+    overflow: auto;
+    display: block;
+    left: 458px;
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    border-color: white;
   }
 
   .map-overlay-container.visible {
-    left: 20px;
+    left: 10px;
   }
 
-  /* .rounded-rect {
-    background: black;
-    border-radius: 10px;
-    box-shadow: 0 0 50px -25px black;
+  .map-overlay-form.visible {
+    right: 10px;
   }
 
-  .flex-center {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .map-show-player.hide {
+    top: -50px;
   }
 
-  .flex-center.left {
-    left: 0px;
+  .map-overlay-player.visible {
+    top: 5px;
   }
 
-  .flex-center.right {
-    right: 0px;
-  }
-
-  .sidebar-content {
-    position: absolute;
-    width: 95%;
-    height: 95%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 32px;
-    color: gray;
-  }
-
-  .sidebar-toggle {
-    position: absolute;
-    width: 1.3em;
-    height: 1.3em;
-    overflow: visible;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
-
-  /* .sidebar-toggle.left {
-    right: -1.5em;
-  }
-
-  .sidebar-toggle.right {
-    left: -1.5em;
-  }
-
-  .sidebar-toggle:hover {
-    color: #0aa1cf;
-    cursor: pointer;
-  }
-
-  .sidebar {
-    transition: transform 1s;
-    z-index: 1;
-    width: 300px;
-    height: 100%;
-  }
-
-  .left.collapsed {
-    transform: translateX(-295px);
-  }
-
-  .right.collapsed {
-    transform: translateX(295px);
-  } */
 </style>
-
-<!-- <div id="map">
-  <div id="left" class="sidebar flex-center left collapsed">
-    <div class="sidebar-content rounded-rect flex-center">
-      Left sidebar
-      <div class="sidebar-toggle rounded-rect left" onclick="toggleSidebar('left')">
-        &rarr;
-      </div>
-    </div>
-  </div>
-  <div id="right" class="sidebar flex-center right collapsed">
-    <div class="sidebar-content rounded-rect flex-center">
-      Right sidebar
-      <div class="sidebar-toggle rounded-rect right" onclick="toggleSidebar('right')">
-        &larr;
-      </div>
-    </div>
-  </div>
-</div> -->
 
 <div id="map"></div>
 
 <div id="container" class="map-overlay-container">
-  <div id="overlay" class="map-overlay">
+  <div class="header" id="infoHeader">
+    <div id="locationHeader">
+    </div>
+    <div id="closeInfo">
+      <i class="material-icons" style="font-size:40px;color:red">close</i>
+    </div>
+  </div>
+  <div id="lyricDiv">
+  </div>
+  <div id="playerButtonDiv">
+    <button id="playerButton" onclick="showForm()">Listen To This Track</button>
+  </div>
+  <div id="descriptionDiv">
+  </div>
+  <div id="contributeDiv">
+    <button id="contribute" onclick="showForm()">Contribute To This Story</button>
+  </div>
+</div>
+
+<div id="musicPlayer" class="map-overlay-player">
+  <div id="embedDiv">
+  </div>
+  <div id="hidePlayer" style="text-align: center;">
+    <i class="material-icons" style="font-size:30px;color:white">keyboard_double_arrow_up</i>
+  </div>
+</div>
+
+<div id="showPlayer" class="map-show-player">
+  <i class="material-icons" style="font-size:30px;color:white">keyboard_double_arrow_down</i>
+</div>
+
+<div id="form" class="map-overlay-form">
+  <div class="header" id="formHeader">
+    <div id="closeForm">
+      <i class="material-icons" style="font-size:40px;color:red">close</i>
+    </div>
+    <h5>Submission Form</h5>
+  </div>
+  <div id="formDiv">
   </div>
 </div>
 

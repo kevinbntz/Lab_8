@@ -41,7 +41,7 @@ app.get('/api/geojson', async (req, res) => {
       res.status(500).json({ error: 'Failed to fetch data' });
     }
   });
-  
+
   app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
   });

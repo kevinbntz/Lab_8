@@ -7,7 +7,7 @@
         "Artist": "Mos Def",
         "Song Name": "Brooklyn",
         "Song Year": 1999,
-        "Verse": "\"Yo, sometime I sit back, reflect on the place that I live at\nUnlike any place I ever been at\nThe home of big gats, deep dish hammer rim caps\nHave a mishap, push ya wig back\nWhere you go to get the fresh trim at Fulton and Jay got the Timb rack\nBlue collars metro carding it\nThugs mobbing it, form partnership, increase armament\nStreet pharmacist - deep consequence\nWhen you seek sleek ornaments\"",
+        "Verse": "\"Yo, sometime I sit back, reflect on the place that I live at\n\nUnlike any place I ever been at\n\nThe home of big gats, deep dish hammer rim caps\n\nHave a mishap, push ya wig back\n\nWhere you go to get the fresh trim at Fulton and Jay got the Timb rack\n\nBlue collars metro carding it\n\nThugs mobbing it, form partnership, increase armament\n\nStreet pharmacist - deep consequence\n\nWhen you seek sleek ornaments\"",
         "Album": "Black on Both Sides",
         "Year Referenced": "1980's-1990's",
         "Memory Contrib Name": "",
@@ -16,7 +16,7 @@
         "Contrib Q3": "",
         "Embed Link": "src=\"https://embed.tidal.com/tracks/569765\" width=\"500\" height=\"120\" allow=\"encrypted-media\" sandbox=\"allow-same-origin allow-scripts allow-forms allow-popups\" title=\"TIDAL Embed Player\"",
         "Media": "images/jay-street-and-fulton.jpg",
-        "Description": "Fulton street was a center for hip-hop culture and commerce etc. "
+        "Description": "Fulton street was a center for hip-hop culture and commerce etc."
       },
       "geometry": {
         "coordinates": [
@@ -33,13 +33,13 @@
         "Address": "551 Fulton Mall",
         "Artist": "Biz Markee",
         "Song Name": "Albee Square Mall",
-        "Verse": "\"I'm here to talk about the Albee Square Mall\nA place where people shop in Downtown Brooklyn\nWhere I can be found if you\u2019re lookin...\"",
+        "Verse": "\"I'm here to talk about the Albee Square Mall\n\nA place where people shop in Downtown Brooklyn\n\nWhere I can be found if you\u2019re lookin...\"",
         "Song Year": 1988,
         "Year Referenced": 1988,
         "Album": "Goin Off",
         "Memory Contrib Name": "",
         "Embed Link": "width=\"500\" height=\"282\" src=\"https://www.youtube.com/embed/3dNe9FAoeZ8?si=xRAzsxXci18sICy_\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\"",
-        "Description": "Mall also referenced by Jay-Z and others",
+        "Description": "The Albee Square Mall was a prominent indoor shopping center on Fulton Street that was in operation from 1977 to 2007. Replacing the Albee Theater in the same spot, the mall was home to 50 local businesses and was a hotspot for Brooklyn teenagers who hung out for hours at a time during and after school. While the mall was known for its basketball jerseys, stands that offered underground mixtapes, and Bally sneakers at Gibb's, Orange Julius was the most popular attraction. \"That's where all the hood cats would hang out,\" remarked Big Daddy Kane. \"We'd take the train up to Midtown and all meet over at Orange Julius. It was like a hangout spot for all the teenagers,\". Albee Square Mall was most famously memorialized in rapper Biz Markie's \"Albee Square Mall\", which was released years after his famous rap battle with Big Daddy Kane in the same place. Yet thanks to the upzoning of Downtown Brooklyn in 2004, the mall was razed to the ground in 2007 and replaced with City Point, a luxury mixed-use multi-building residential and commercial complex.",
         "Media": "images/albee-square-mall.jpg"
       },
       "geometry": {
@@ -58,11 +58,11 @@
         "Artist": "Notorious B.I.G. ",
         "Song Name": "Big Poppa",
         "Song Year": 1994,
-        "Verse": "\"Pull the truck up, front and roll up the next blunt\nSo we can steam on the way to the telly go fill my belly\nA T-bone steak, cheese eggs and Welch's grape\nConversate for a few 'cause in a few, we gon' do What we came to do, ain't that right boo?\"",
+        "Verse": "\"Pull the truck up, front and roll up the next blunt\n\nSo we can steam on the way to the telly go fill my belly\n\nA T-bone steak, cheese eggs and Welch's grape\n\nConversate for a few 'cause in a few, we gon' do\n\nWhat we came to do, ain't that right boo?\"",
         "Album": "Ready to Die",
         "Year Referenced": "1980's-1990's",
         "Embed Link": "src=\"https://embed.tidal.com/tracks/40453253\" width=\"500\" height=\"120\" allow=\"encrypted-media\" sandbox=\"allow-same-origin allow-scripts allow-forms allow-popups\" title=\"TIDAL Embed Player\"",
-        "Description": "Meal referenced by Notorious BIG in Big Poppa - one of favorite restaurants",
+        "Description": "Notorious B.I.G. describes a typical scene from his life in Bedford-Stuyvesant and Clinton Hill in the 1990's, where he was a regular at Country House Diner. In his smash hit \"Big Poppa,\" Biggie describes his usual order at Country House Diner. In many ways, Country House Diner represents a bygone era of Biggie's Bed-Stuy. As the NYTimes described in 2009, \"What once was a busy strip that included fast food restaurants, a liquor store and an arcade is now a stretch of eclectic dining spots, wine shops and markets featuring organic items.\" Despite Fulton Ave's gentrification and the displacement of many of the businesses and families from this era, Country House Diner still stands, with the \"Big Poppa\" meal of t-bone steak, cheesy eggs, and grape juice available to order on the menu.",
         "Media": "images/fulton-street-liquor-biggie-smalls.png"
       },
       "geometry": {
@@ -84,9 +84,10 @@
         "Song Name": "Where I'm From",
         "Song Year": 1997,
         "Album": "In My Lifetime, Vol. I",
-        "Verse": "\"I'm from where the hammers rung,\u00a0news cameras never come\u2028\nYou and your mans hung in every verse in your rhyme\u2028\nWhere the grams was slung, n------ vanish every summer\u2028\nWhen the blue vans would come, we throw the work in the can and run\u2028\nWhere the plans was to get funds and skate off the set\u2028\nTo achieve this goal quicker, sold all my weight wet\u2028\nFaced with immeasurable odds, still I gave straight bets...\n[Chorus]\u2028\nCough up a lung,\u00a0where I'm from, Marcy son, ain't nothing nice\"",
+        "Verse": "\"I'm from where the hammers rung,\u00a0news cameras never come\u2028\n\nYou and your mans hung in every verse in your rhyme\u2028\n\nWhere the grams was slung, n------ vanish every summer\u2028\n\nWhen the blue vans would come, we throw the work in the can and run\u2028\n\nWhere the plans was to get funds and skate off the set\u2028\n\nTo achieve this goal quicker, sold all my weight wet\u2028\n\nFaced with immeasurable odds, still I gave straight bets...\n\n[Chorus]\u2028\nCough up a lung,\u00a0where I'm from, Marcy son, ain't nothing nice\"",
         "Embed Link": "src=\"https://embed.tidal.com/tracks/35980313\" width=\"500\" height=\"120\" allow=\"encrypted-media\" sandbox=\"allow-same-origin allow-scripts allow-forms allow-popups\" title=\"TIDAL Embed Player\"",
-        "Media": "images/marcy-house-jay-z.jpg"
+        "Media": "images/marcy-house-jay-z.jpg",
+        "Description": "Marcy Houses is a Bedford-Stuyvesant New York City Housing Authority (NYCHA) development that birthed the career of Jay-Z, one of the greatest rappers of all time. Jay-Z was raised at Marcy Houses, and as a preteen, he came across several kids in the hallways of his building at rapping in a cypher. He went home and wrote his first verses that night. Hip-hop was exploding across New York in the 1980s, and Marcy was no exception. As Vice describes, \"speakers and subwoofers eight feet in height would be set up in the courtyards of the Marcy Houses for epic MC battles that would 'rattle' the windows of the families\" in the projects above.\n\nJay-Z references Brooklyn, Marcy Houses, and his neighborhood Bedford-Stuyvesant 67 times across his catalog of songs. In this excerpt, Jay-Z describes the invisibility of ghettoized[link to redlining guide] neighborhoods in the 1980s, the drug trade, urban poverty and the struggle for economic mobility, and militarized police infiltrating black neighborhoods during the War on Drugs. These references provide a rich oral history of Marcy Houses in the height of the crack epidemic."
       },
       "geometry": {
         "coordinates": [
@@ -106,9 +107,10 @@
         "Song Year": 1999,
         "Album": "Black on Both Sides",
         "Year Referenced": 1999,
-        "Verse": "\"I'm blacker than midnight on Broadway and Myrtle\nHip-Hop passed all your tall social hurdles\nLike the nationwide projects-prison-industry complex\nWorking-class poor: better keep your alarm set\nStreets too loud to ever hear freedom ring\nSay evacuate your sleep, it's dangerous to dream\"",
+        "Verse": "\"I'm blacker than midnight on Broadway and Myrtle\n\nHip-Hop passed all your tall social hurdles\n\nLike the nationwide projects-prison-industry complex\n\nWorking-class poor: better keep your alarm set\n\nStreets too loud to ever hear freedom ring\n\nSay evacuate your sleep, it's dangerous to dream\"",
         "Embed Link": "src=\"https://embed.tidal.com/tracks/569768\" width=\"500\" height=\"120\" allow=\"encrypted-media\" sandbox=\"allow-same-origin allow-scripts allow-forms allow-popups\" title=\"TIDAL Embed Player\"",
-        "Media": "https://citylimits.org/wp-content/uploads/2019/08/20190717CityLimitsBushwickVisionZero-5787Web1920X1080.-1170x658.jpg"
+        "Media": "https://citylimits.org/wp-content/uploads/2019/08/20190717CityLimitsBushwickVisionZero-5787Web1920X1080.-1170x658.jpg",
+        "Description": "Myrtle & Broadway is a prominent intersection on the border between Bushwick and Bedford-Stuyvesant, Brooklyn, notable for its elevated subway station. This commercial pocket is lively well into the night with street vendors, bodegas, and fastfood eateries. Although this is a historically black neighborhood, as described by Mos Def, this chaotic transportation hub has become become a symbol of gentrification in recent years. As younger white populations moved into the Bushwick and Bed-Stuy neighborhoods, the stop has become emblematic of the chasms that emerge in New York neighborhoods due to gentrification, as high-end coffee shops and white collar workers move in alongside street vendors, migrants, and longstanding black residents.\n\nMos Def's reference to the pipeline from black communities to prisons strongly resonates at the Myrtle-Broadway intersection, as the Manhattan Detention Complex is just a few stops away. Subway tracks rumbling overhead, the Sumner Houses, and Woodhull Hospital loom as a reminder that carcerality can extend beyond prison walls and into redlined neighborhoods."
       },
       "geometry": {
         "coordinates": [
@@ -127,10 +129,11 @@
         "Artist": "Capital Steez",
         "Song Name": "Vibe Ratings",
         "Song Year": 2012,
-        "Verse": "\"Comin' live from Flatbush Junction and making it hard to function\nBreakin' down your sound systems and governmental corruption\nSo, step aside pumpkin, quit jumpin' to assumptions\nThe illest cats to ever rap, we spittin' crack on beats and claps\nSalvations? Ain't 'nything, I make that up for simple tracks\"",
+        "Verse": "\"Comin' live from Flatbush Junction and making it hard to function\n\nBreakin' down your sound systems and governmental corruption\n\nSo, step aside pumpkin, quit jumpin' to assumptions\n\nThe illest cats to ever rap, we spittin' crack on beats and claps\n\nSalvations? Ain't 'nything, I make that up for simple tracks\"",
         "Album": "AmeriKKKan Koruption: Reloaded",
         "Embed Link": "src=\"https://embed.tidal.com/tracks/267764966\" width=\"500\" height=\"120\" allow=\"encrypted-media\" sandbox=\"allow-same-origin allow-scripts allow-forms allow-popups\" title=\"TIDAL Embed Player\"",
-        "Media": "https://i.ytimg.com/vi/AFNC-hkokRY/maxresdefault.jpg"
+        "Media": "https://i.ytimg.com/vi/AFNC-hkokRY/maxresdefault.jpg",
+        "Description":""
       },
       "geometry": {
         "coordinates": [
@@ -149,7 +152,7 @@
         "Artist": "Notorious B.I.G.",
         "Song Name": "Juicy",
         "Song Year": 1994,
-        "Verse": "\"Celebratin' every day, no more public housin'\nThinkin' back on my one-room shack\nNow my mom pimps a Ac' with minks on her back\nAnd she loves to show me off of course\nSmiles every time my face is up in The Source\nWe used to fuss when the landlord dissed us\nNo heat, wonder why Christmas missed us\nBirthdays was the worst days\nNow we sip Champagne when we thirsty\"",
+        "Verse": "\"Celebratin' every day, no more public housin'\n\nThinkin' back on my one-room shack\n\nNow my mom pimps a Ac' with minks on her back\n\nAnd she loves to show me off of course\nSmiles every time my face is up in The Source\n\nWe used to fuss when the landlord dissed us\n\nNo heat, wonder why Christmas missed us\n\nBirthdays was the worst days\n\nNow we sip Champagne when we thirsty\"",
         "Album": "Ready to Die",
         "Year Referenced": "1980's",
         "Embed Link": "src=\"https://embed.tidal.com/tracks/40453250\" width=\"500\" height=\"120\" allow=\"encrypted-media\" sandbox=\"allow-same-origin allow-scripts allow-forms allow-popups\" title=\"TIDAL Embed Player\"",
@@ -167,7 +170,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Verse": "\"We used to chill at Nkiru, her moms was a customer\nShe used to love to buy the books by Octavia Butler\"",
+        "Verse": "\"We used to chill at Nkiru, her moms was a customer\n\nShe used to love to buy the books by Octavia Butler\"",
         "Year Referenced": "1980's-1990's",
         "Location Name": "Nkiru Books",
         "Address": "76 St. Mark's Ave",
@@ -175,7 +178,7 @@
         "Song Name": "Ms. Hill",
         "Song Year": 2005,
         "Album": "Right About Now: The Official Sucka Free Mix CD",
-        "Description": "Mos Def & Talib Kweli co-owned bookstore - original location at 76 St Mark's Ave. first black bookstore in brooklyn and 2nd in NYC. moved in 2000 when bought out by the pair - now online bookstore.",
+        "Description": "Nkiru was the first and longest-running black bookstore in Brooklyn. It was originally located at 76 Marks Ave, and for much of the 1990's, the bookshop was a hub for Brooklyn's black literary community. As the Village Voice describes, the bookshop ushered in \"a new vanguard of African-American poets, authors, and rappers. Nkiru nurtured a modern renaissance of radical black thought and spoken word in New York City,\" launching the careers of writers like Edwidge Danticat, Saul Williams, and many others. The shop was founded in 1976 by Leothy Miller Owens to supply low-income children in Brooklyn with multicultural books. The bookshop hosted readings by famed authors like Maya Angelou, Octavia Butler, and Alice Walker.\n\nTalib Kweli grew up 5 blocks from Nkiru, walking by the store almost daily as a kid. When he was a student at NYU, he worked at Nkiru Books. Kweli told the Village Voice in 2016, \"I would have killed and died for that place. I felt like I was home.\" As Mos Def and Talib Kweli's rap careers began to take off, they launched a hip-hop event called \"Foundations\" at Nkiru that turned the shop into a revolutionary performing arts space for emerging rappers and spoken word poets. In the late 1990s, when Nkiru was struggling financially, Talib Kweli and Mos Def purchased the shop to save it. Nkiru relocated to Prospect Heights under the new ownership, but ultimately closed in 2002. Kweli has since opened an online version of Nkiru Books.",
         "Media": "images/nkiru-books-talib-kweli.jpg",
         "Embed Link": "src=\"https://embed.tidal.com/tracks/145284287\" width=\"500\" height=\"120\" allow=\"encrypted-media\" sandbox=\"allow-same-origin allow-scripts allow-forms allow-popups\" title=\"TIDAL Embed Player\""
       },

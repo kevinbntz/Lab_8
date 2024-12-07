@@ -173,89 +173,43 @@ map.on('load', () => {
           }
         ]
       });
-
-        // // Add a pulsing dot at the clicked location
-        // map.addSource('pulsing-point', {
-        //     type: 'geojson',
-        //     data: {
-        //         type: 'FeatureCollection',
-        //         features: [
-        //             {
-        //                 type: 'Feature',
-        //                 geometry: {
-        //                     type: 'Point',
-        //                     coordinates: coordinates
-        //                 }
-        //             }
-        //         ]
-        //     }
-        // });
-
-        // map.addLayer({
-        //     id: 'pulsing-point-layer',
-        //     type: 'symbol',
-        //     source: 'pulsing-point',
-        //     layout: {
-        //         'icon-image': 'pulsing-dot'
-        //     }
-        // });
     }
   });
 
-  // Step 6: Clean Up Pulsing Dot on Map Click
-  // map.on('click', (e) => {
-  //     if (!map.queryRenderedFeatures(e.point, { layers: ['mongoLayer'] }).length) {
-  //         if (map.getLayer('pulsing-point-layer')) {
-  //             map.removeLayer('pulsing-point-layer');
-  //             // map.removeSource('pulsing-point');
-  //         }
-  //     }
-  // });
-
 });
 
+// Get static elements on information overlay by their ID
+const overlay = document.getElementById('container');
+const locationHeader = document.getElementById('locationHeader');
+const closeInfo = document.getElementById('closeInfo');
+const lyricDiv = document.getElementById('lyricDiv');
+const playerButton = document.getElementById('playerButton');
+const descriptionDiv = document.getElementById('descriptionDiv');
+const contributeButton = document.getElementById('contribute');
+
+// Get static elements of player overlay
+const showPlayer = document.getElementById('showPlayer');
+const musicPlayer = document.getElementById('musicPlayer');
+const embedDiv = document.getElementById('embedDiv');
+const hidePlayer = document.getElementById('hidePlayer');
+
+// Get static elements of form overlay by their ID
+const formContainer = document.getElementById('form');
+const formDiv = document.getElementById('formDiv');
+const closeForm = document.getElementById('closeForm');
+
+// Changing variables
+let prefillData = {};
+let embedLink = '';
 
 // Open Overlay
 map.on('click', 'mongoLayer', (e) => {
   // get marker coordinates
   const coordinates = e.features[0].geometry.coordinates.slice();
+  const lon = coordinates[0];
+  const lat = coordinates[1];
 
-  // zoom to marker
-  // map.easeTo({
-  //   center: coordinates,
-  //   zoom: 14,
-  //   duration: 1000
-  // })
-
-  // pulsing dot
-  // map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
-
-  // map.addSource('dot-point', {
-  //     'type': 'geojson',
-  //     'data': {
-  //         'type': 'FeatureCollection',
-  //         'features': [
-  //             {
-  //                 'type': 'Feature',
-  //                 'geometry': {
-  //                     'type': 'Point',
-  //                     'coordinates': coordinates // icon position [lng, lat]
-  //                 }
-  //             }
-  //         ]
-  //     }
-  // });
-
-  // map.addLayer({
-  //     'id': 'layer-with-pulsing-dot',
-  //     'type': 'symbol',
-  //     'source': 'dot-point',
-  //     'layout': {
-  //         'icon-image': 'pulsing-dot'
-  //     }
-  // });
-
-  //
+  // Data from marker
   const properties = e.features[0].properties;
   const location = properties['Location Name'];
   const artist = properties['Artist'];
@@ -266,25 +220,29 @@ map.on('click', 'mongoLayer', (e) => {
   const verse = properties.Verse;
   const verseEscaped = verse.replace(/\n/g, '<br>');
   const description = properties.Description;
+  const descEscaped = description.replace(/\n/g, '<br>');
   const embed = properties['Embed Link'];
+  embedLink = embed;
+
+  // Data that will be sent to form
+  prefillData = {
+    location: location,
+    title: title,
+    artist: artist,
+    lon: lon,
+    lat: lat
+  };
     
-  const overlay = document.getElementById('container');
   overlay.classList.remove('visible');
-  // overlay.innerHTML = `<h3>${location || 'Unknown Location'}</h3>
-  //                      <h4>${reference}</h4>
-  //                      <p>${verse || 'Unknown Lyrics'}</p>
-  //                      <p>- ${artist}, "${title}"</p>
-  //                      <iframe ${embed}></iframe>`
-  overlay.innerHTML = `<h3>${location || 'Unknown Location'}</h3>
-                       <h4>${reference}</h4>
-                       <img src="${media}" width="500" height="auto" />
-                       <p>${verseEscaped || 'Unknown Lyrics'}</p>
-                       <p>- ${artist}, "${title}"</p>`+
-                      // `<p>${embed || 'No Embed'}</p>`
-                      `<iframe `+ embed +` />`
+  locationHeader.innerHTML = `<h3>${location || 'Unknown Location'}</h3>`;
+  lyricDiv.innerHTML = `<h4>${reference}</h4>
+                           <img src="${media}" width="400" height="auto" />
+                           <p>${verseEscaped || 'Unknown Lyrics'}</p>
+                           <p>- ${artist}, "${title}"</p>`;
+  descriptionDiv.innerHTML = `<p>${descEscaped || 'Description'}</p>`;
   overlay.classList.add('visible');
   const visible = overlay.classList.contains('visible');
-  const padding = visible ? 0 : 500; // 500 if visible, 0 otherwise
+  const padding = visible ? 500 : 0; // 500 if visible, 0 otherwise
 
   // Zoom to marker
   map.easeTo({
@@ -295,13 +253,58 @@ map.on('click', 'mongoLayer', (e) => {
 
 });
 
-// Close Overlay
-map.on('click', (e) => {
-  const features = map.queryRenderedFeatures(e.point, { layers: ['mongoLayer']});
+// Music Player Button
+playerButton.addEventListener('click', () => {
+  embedDiv.innerHTML = `<iframe `+ embedLink +` />`;
+  showPlayer.classList.add('hide');
+  musicPlayer.classList.add('visible');
+})
 
-  if (!features.length) {
-    const overlay = document.getElementById('container');
-    overlay.classList.remove('visible');
-  }
-});
+// Contribute Button
+contributeButton.addEventListener('click', () => {
+  formDiv.innerHTML = `<iframe id="formIframe" src="https://mapping-hip-hop-app-b84522a59d4d.herokuapp.com/form" width="410" height="510" 
+                        sandbox="allow-forms allow-scripts" ></iframe>`;
+  // For local testing
+  // formDiv.innerHTML = `<iframe id="formIframe" src="http://localhost:3000/form" width="410" height="510" 
+  //                       sandbox="allow-forms allow-scripts" ></iframe>`;
+  
+  const iframe = document.getElementById("formIframe");
+  iframe.onload = () => {
+    iframe.contentWindow.postMessage(prefillData, '*');
+  };
+  formContainer.classList.add('visible');
+})
+
+// Close information tab
+closeInfo.addEventListener('click', () => {
+  overlay.classList.remove('visible');
+})
+
+// Close form tab
+closeForm.addEventListener('click', () => {
+  formContainer.classList.remove('visible');
+})
+
+// Show Music Player
+showPlayer.addEventListener('click', () => {
+  showPlayer.classList.add('hide');
+  musicPlayer.classList.add('visible');
+})
+
+// Hide Music Player
+hidePlayer.addEventListener('click', () => {
+  musicPlayer.classList.remove('visible');
+  showPlayer.classList.remove('hide');
+})
+
+
+// Close Overlay (deprecated)
+// map.on('click', (e) => {
+//   const features = map.queryRenderedFeatures(e.point, { layers: ['mongoLayer']});
+
+//   if (!features.length) {
+//     const overlay = document.getElementById('container');
+//     overlay.classList.remove('visible');
+//   }
+// });
   
