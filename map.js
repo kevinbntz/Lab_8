@@ -1,11 +1,13 @@
-// mapboxgl.accessToken = "pk.eyJ1Ijoia2Jlbml0ZXoiLCJhIjoiY20xanRkNDJjMDU2bDJpb2tkaTltN2R5NiJ9.LHpehjaR0swXOUvk8D5F9w";
-mapboxgl.accessToken = "pk.eyJ1Ijoia2Jlbml0ZXoiLCJhIjoiY20xanRkNDJjMDU2bDJpb2tkaTltN2R5NiJ9.LHpehjaR0swXOUvk8D5F9w";
+// mapboxgl.accessToken = "pk.eyJ1Ijoia2Jlbml0ZXoiLCJhIjoiY20xanRkNDJjMDU2bDJpb2tkaTltN2R5NiJ9.LHpehjaR0swXOUvk8D5F9w"; // YOUR STYLE URL
+// mapboxgl.accessToken = "pk.eyJ1Ijoia2Jlbml0ZXoiLCJhIjoiY20xanRkNDJjMDU2bDJpb2tkaTltN2R5NiJ9.LHpehjaR0swXOUvk8D5F9w"; // HAND DRAWN
+mapboxgl.accessToken = "pk.eyJ1Ijoia2Jlbml0ZXoiLCJhIjoiY20xanRkNDJjMDU2bDJpb2tkaTltN2R5NiJ9.LHpehjaR0swXOUvk8D5F9w" // HAND DRAWN WITH LABELS
 
 // CREATE A NEW OBJECT CALLED MAP
 const map = new mapboxgl.Map({
     container: "map", // container ID for the map object (this points to the HTML element)
-    // style: "mapbox://styles/kbenitez/cm1jtlviw004a01pdb4x7btn4", //YOUR STYLE URL
-    style: "mapbox://styles/kbenitez/cm2tclyo1000001pa7olh0953", //HAND DRAWN
+    // style: "mapbox://styles/kbenitez/cm1jtlviw004a01pdb4x7btn4", // YOUR STYLE URL
+    // style: "mapbox://styles/kbenitez/cm2tclyo1000001pa7olh0953", // HAND DRAWN
+    style: "mapbox://styles/kbenitez/cm4ekcxup00hf01rw5oiucyub", // HAND DRAWN WITH LABELS
     center: [-73.9442, 40.6482], // starting position [lng, lat] (google brooklyn)
     pitch: 60,
     zoom: 11, // starting zoom (adjust it as you wish)
@@ -267,7 +269,7 @@ contributeButton.addEventListener('click', () => {
   // For local testing
   // formDiv.innerHTML = `<iframe id="formIframe" src="http://localhost:3000/form" width="410" height="510" 
   //                       sandbox="allow-forms allow-scripts" ></iframe>`;
-  
+
   const iframe = document.getElementById("formIframe");
   iframe.onload = () => {
     iframe.contentWindow.postMessage(prefillData, '*');
