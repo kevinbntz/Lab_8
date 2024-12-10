@@ -238,8 +238,8 @@ map.on('click', 'mongoLayer', (e) => {
   };
     
   overlay.classList.remove('visible');
-  locationHeader.innerHTML = `<h3>${location || 'Unknown Location'}</h3>`;
-                            <p>${address}</p>;
+  locationHeader.innerHTML = `<h3>${location || 'Unknown Location'}</h3>
+                              <p>${address}</p>`;
   lyricDiv.innerHTML = `<h4>${reference}</h4>
                            <img src="${media}" width="400" height="auto" />
                            <p>${img_caption} </p>
