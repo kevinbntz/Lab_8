@@ -225,6 +225,7 @@ map.on('click', 'mongoLayer', (e) => {
   const descEscaped = description.replace(/\n/g, '<br>');
   const embed = properties['Embed Link'];
   const img_caption = properties['Caption'];
+  const address = properties['Address']
   embedLink = embed;
 
   // Data that will be sent to form
@@ -238,8 +239,10 @@ map.on('click', 'mongoLayer', (e) => {
     
   overlay.classList.remove('visible');
   locationHeader.innerHTML = `<h3>${location || 'Unknown Location'}</h3>`;
+                            <p>${address}</p>;
   lyricDiv.innerHTML = `<h4>${reference}</h4>
                            <img src="${media}" width="400" height="auto" />
+                           <p>${img_caption} </p>
                            <p>${verseEscaped || 'Unknown Lyrics'}</p>
                            <p>- ${artist}, "${title}"</p>`;
   descriptionDiv.innerHTML = `<p>${descEscaped || 'Description'}</p>`;
