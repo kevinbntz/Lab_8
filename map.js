@@ -224,6 +224,7 @@ map.on('click', 'mongoLayer', (e) => {
   const description = properties.Description;
   const descEscaped = description.replace(/\n/g, '<br>');
   const embed = properties['Embed Link'];
+  const img_caption = properties['Caption'];
   embedLink = embed;
 
   // Data that will be sent to form
