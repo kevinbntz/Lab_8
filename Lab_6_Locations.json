@@ -3,7 +3,6 @@
       "type": "Feature",
       "properties": {
         "Location Name": "Fulton Street",
-        "Address": "435 Fulton St",
         "Artist": "Mos Def",
         "Song Name": "Brooklyn",
         "Song Year": 1999,
@@ -133,6 +132,7 @@
         "Album": "AmeriKKKan Koruption: Reloaded",
         "Embed Link": "src=\"https://embed.tidal.com/tracks/267764966\" width=\"500\" height=\"120\" allow=\"encrypted-media\" sandbox=\"allow-same-origin allow-scripts allow-forms allow-popups\" title=\"TIDAL Embed Player\"",
         "Media": "https://i.ytimg.com/vi/AFNC-hkokRY/maxresdefault.jpg",
+        "Caption": "Flatbush and Nostrand Avenue. Image Credit: Councilmember Jumaane Williams, The Flatbush Junction (2016)",
         "Description":""
       },
       "geometry": {
