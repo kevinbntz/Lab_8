@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="./style.css" />
+
+    <!-- Search function -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" rel="stylesheet">
+
+    <!-- Load Mapbox GL US -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css"
       rel="stylesheet"
+    />
+    <!-- import css styling for tippy -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tippy.js@6/animations/scale.css"
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,6 +58,73 @@
     font-weight: 100;
     font-style: normal;
   }
+
+  .page {
+    width: 100vw;
+    height: 100vh;
+    display: none; /* Hide all pages by default */
+  }
+
+  .page.active {
+    display: block; /* Show the active page */
+  }
+
+  #home {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px 10px 10px;
+  }
+
+  #about {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    /* justify-content: center; */
+    /* padding: 10px 10px 10px 10px; */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+
+  /* #logo {
+    padding-left: 150px;
+    padding-top: 100px;
+  } */
+  .collage {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-columns: repeat(3, 150px);
+    gap: 10px;
+    padding-right: 80px;
+    cursor: pointer;
+  }
+
+  .collage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .navigation {
+    position: fixed;
+    background-color: black;
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: none;
+  }
   
 
   .map-overlay-container {
@@ -54,7 +132,7 @@
     background-color: black;
     width: 420px;
     height: 650px;
-    top: 5px;
+    top: 10px;
     left: -440px;
     padding-left: 10px;
     padding-right: 10px;
@@ -71,7 +149,7 @@
     background-color: black;
     width: 420px;
     height: 650px;
-    top: 5px;
+    top: 10px;
     right: -440px;
     padding-left: 10px;
     padding-right: 10px;
@@ -86,12 +164,42 @@
   .map-show-player {
     position: absolute;
     background-color: black;
-    top: 5px;
+    top: 10px;
     left: 48.5%;
     transition: top 0.3s ease-in-out;
     border-radius: 10px;
     display: block;
     z-index: 1;
+  }
+
+  #home-button-div {
+    position: absolute;
+    background-color: black;
+    top: 10px;
+    left: 44%;
+    transition: top 0.3s ease-in-out;
+    border-radius: 10px;
+    display: block;
+    z-index: 1;
+  }
+
+  #home-button-div.hide-above {
+    top: -50px;
+  }
+
+  #menu-button-div {
+    position: absolute;
+    background-color: black;
+    top: 10px;
+    left: 53%;
+    transition: top 0.3s ease-in-out;
+    border-radius: 10px;
+    display: block;
+    z-index: 1;
+  }
+
+  #menu-button-div.hide-above {
+    top: -50px;
   }
 
   .map-overlay-player {
@@ -137,18 +245,182 @@
   }
 
   .map-overlay-player.visible {
-    top: 5px;
+    top: 10px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  #spotlight {
+    position: absolute;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-color: transparent;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7); /* Masking with a "hole" */
+    pointer-events: none;
+    z-index: 1001;
+    transition: top 0.3s ease, left 0.3s ease;
+  }
+
+  .tooltip {
+    background: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); */
+    text-align: center;
+  }
+
+  .tooltip p {
+    font-family: Graffiti;
+    color: white;
+    margin: 0 0 10px;
+    font-size: 60px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .transparent-section {
+    position: fixed
+
+  
+
+    /* clip: rect(50px 50px 50px 50px); */
+    /* mask-image: inset(50px 50px 50px 50px); */
+    /* background-color: transparent; */
+    /* /* mask-composite: exclude; */
+    /* -webkit-mask-image: inset(50px 50px 50px 50px);
+    -webkit-mask-composite: exclude; */
+    /* mask-repeat: no-repeat; */
+    /* -webkit-mask-image: radial-gradient(ellipse, white 50%, rgba(0,0,0,0.7) 50%); */
+    /* mask-image: radial-gradient(ellipse, transparent 50%, white 50%); */
+  }
+
+  .fullscreen-menu {
+    position: fixed;
+    top: -100%; /* Hidden above the viewport */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: #333; */
+    background-image: url("images/Record-Spinning-Red.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: top 0.5s ease; /* Smooth drop-down effect */
+    z-index: 5;
+  }
+
+  .tippy-box[data-theme~='ours'] {
+    background-color: black;
+    color: white
+  }
+
+  .tippy-box[data-theme~='ours'] > .tippy-arrow::before {
+    transform: scale(0.8);
+  }
+
+  .tippy-box[data-theme~='ours'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: black;
+  }
+  .tippy-box[data-theme~='ours'][data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: black;
+  }
+  .tippy-box[data-theme~='ours'][data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: black;
+  }
+  .tippy-box[data-theme~='ours'][data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: black;
+  }
+
+  .tippy-content {
+    font-family: Graffiti;
+    font-size: 30px;
+  }
+
+  #closeGuide {
+    background-color: transparent;
+    color: white;
+    font-size: 60px;
+  }
+
+  #acceptGuide {
+    background-color: transparent;
+    color: white;
+    font-size: 60px;
   }
 
 </style>
+<!-- <div id="navigationBar" class="navigation">
+  <button id="home" style="background-color: transparent;" border-color="none">
+    <i class="material-icons" style="background-color: black;font-size:30px;color:white">home</i>
+  </button>
+  <button id="menu" style="background-color: transparent;" border-color="none">
+    <i class="material-icons" style="background-color: black;font-size:30px;color:white">menu</i>
+  </button>
+</div> -->
+<div id="home" class="page active">
+  <div id="menu-button-divH" class="navigation-buttons">
+    <button id="menu-button" style="background-color: black;">
+      <i class="material-icons" style="background-color: black;font-size:30px;color:white">menu</i>
+    </button>
+  </div>
+  <div id="homePair" style="display: flex;vertical-align: middle; justify-content: center;">
+    <div id="logo" style="border-color: red;">
+      <img src="images/Mapping Hip-Hop Logo.jpeg" width="800px" height="auto"/>
+    </div>
+    <div id="collage" class="collage" width="50%">
+      <img src="images/albee-square-mall.jpg">
+      <img src="images/biggie-smalls-childhood-home.jpg">
+      <img src="images/nkiru-books-talib-kweli.jpg">
+      <img src="images/jay-street-and-fulton.jpg">
+      <img src="images/Kareem Marcy Houses.jpg">
+      <img src="images/bridge-protest.jpg">
+      <img src="images/Nas.jpg">
+      <img src="images/lupe-fiasco-portrait.jpg">
+      <img src="images/Notorious BIG Crown.jpg">
+    </div>
+  </div>
+  <div id="homeText">
+    <h3>Amplifying the music that Brooklyn neighborhoods on the map</h3>
+  </div>
+</div>
 
-<div id="map"></div>
+<div id="menu" class="fullscreen-menu">
+  <ul>
+    <li style="margin: 30px;"><a href="#home" onclick="navigate('home')"><h7>Home</h7></a></li>
+    <li style="margin: 30px;"><a href="#mapPage" onclick="navigate('mapPage')"><h7>Map</h7></a></li>
+    <li style="margin: 30px;"><a href="#about" onclick="navigate('about')"><h7>About</h7></a></li>
+    <!-- <li style="margin: 20px;"><a href="#resources"><h7>Resources</h7></a></li> -->
+  </ul>
+  <i class="material-icons" style="font-size:60px;color:white;cursor: pointer;" onclick="hideMenuFunc()">keyboard_double_arrow_up</i>
+</div>
+
+<div id="mapPage" class="page">
+<!-- <div id="map"></div> -->
 
 <div id="container" class="map-overlay-container">
   <div class="header" id="infoHeader">
     <div id="locationHeader">
     </div>
-    <div id="closeInfo">
+    <div id="closeInfo" style="cursor: pointer;">
       <i class="material-icons" style="font-size:40px;color:red">close</i>
     </div>
   </div>
@@ -166,19 +438,36 @@
 
 <div id="musicPlayer" class="map-overlay-player">
   <div id="embedDiv">
+    <iframe src="" width="500" height="120"></iframe>
   </div>
   <div id="hidePlayer" style="text-align: center;">
     <i class="material-icons" style="font-size:30px;color:white">keyboard_double_arrow_up</i>
   </div>
 </div>
 
-<div id="showPlayer" class="map-show-player">
-  <i class="material-icons" style="font-size:30px;color:white">keyboard_double_arrow_down</i>
+<div id="home-button-div" class="navigation-buttons">
+  <button id="home-button" style="background-color: black;">
+    <i class="material-icons" style="background-color: black;font-size:30px;color:white">home</i>
+  </button>
 </div>
+
+<div id="showPlayer" class="map-show-player">
+  <button id="showPlayer-button" style="background-color: black;">
+    <i class="material-icons" style="font-size:30px;color:white">music_note</i>
+  </button>
+</div>
+
+<div id="menu-button-div" class="navigation-buttons">
+  <button id="menu-button" style="background-color: black;">
+    <i class="material-icons" style="background-color: black;font-size:30px;color:white">menu</i>
+  </button>
+</div>
+
+
 
 <div id="form" class="map-overlay-form">
   <div class="header" id="formHeader">
-    <div id="closeForm">
+    <div id="closeForm" style="cursor: pointer;">
       <i class="material-icons" style="font-size:40px;color:red">close</i>
     </div>
     <h5>Submission Form</h5>
@@ -187,9 +476,57 @@
   </div>
 </div>
 
-<script src="./map.js">
+<!-- Overlay -->
+<div id="guideOverlay" class="overlay hidden">
+  <div id="tooltip" class="tooltip">
+    <p id="tooltip-text">First time here?</p>
+    <div>
+      <button id="closeGuide">X</button>
+      <button id="acceptGuide">✓</button>
+    </div>
+  </div>
+</div>
+</div>
 
-</script>
+<div id="about" class="page">
+  <div id="menu-button-divA" class="navigation-buttons">
+    <button id="menu-button" style="background-color: black;">
+      <i class="material-icons" style="background-color: black;font-size:30px;color:white">menu</i>
+    </button>
+  </div>
+  <h6>About</h6>
+  <h3>Mapping Hip-Hop seeks to AMPLIFY THE SPATIAL NATURE OF HIP-HOP in order to root black culture, history, and memory in place.</h3>
+  <div id="aboutPair" style="display: flex;vertical-align: middle; justify-content: center;">
+    <p>We see hip-hop as a form of black resistance to urban crises such as displacement, disinvestment, and violence.<br><br>
+       Artists often rap about what they know: the places that made them. Hip-hop lyrics are in many ways oral histories rooted in neighborhoods, blocks, and streets.<br><br> 
+       As historically black neighborhoods in Brooklyn face increasing displacement pressures, we hope to amplify the memories and histories of these neighborhoods through the music that put them on the map.  
+    </p>
+    <img src="images/about.png">
+  </div>
+</div>
+<!-- <div id="spotlight"></div> -->
 
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+<!-- <script>
+  // With the above scripts loaded, you can call `tippy()` with a CSS
+  // selector and a `content` prop:
+  tippy('#showPlayer', {
+    content: 'Click here to show the music player',
+    theme: 'ours',
+  });
+  tippy('#playerButton', {
+    content: 'Click to open the music player',
+    theme: 'ours',
+    placement: 'right',
+  })
+  tippy('#contribute', {
+    content: 'Click to add your piece of Hip-Hop History',
+    theme: 'ours',
+    placement: 'right',
+  })
+</script> -->
+
+<script src="./map.js"></script>
 </body>
 </html>

@@ -28,7 +28,26 @@ h5 {
     padding-right: 10px;
 }
 
+h6 {
+    font-family: "Rubik Mono One";
+    font-size: xx-large;
+    color: red;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+h7 {
+    font-family: "Rubik Mono One";
+    font-size: xx-large;
+    color: white;
+}
+
 p {
+    font-family: "Roboto Mono";
+    color: white;
+}
+
+small {
     font-family: "Roboto Mono";
     color: white;
 }
@@ -47,6 +66,7 @@ p {
     border-color: white;
     display: block;
     margin: auto;
+    cursor: pointer;
 }
 
 #playerButton {
@@ -58,5 +78,40 @@ p {
     border-color: white;
     display: block;
     margin: auto;
+    cursor: pointer;
 }
 
+@font-face {
+    font-family: Graffiti;
+    src: url(fonts/Graffiti\ City.otf);
+}
+
+.rainbow {
+    border-radius: 10px;
+}
+.rainbow::before {
+  background: white;
+  z-index: -2;
+  pointer-events: none;
+}
+.rainbow:hover:before {
+    animation: rotate 2s linear infinite forwards;
+    background:  conic-gradient(
+        #fd004c,
+        #fe9000,
+        #fff020,
+        #3edf4b,
+        #3363ff,
+        #b102b7,
+        #fd004c
+      );
+}
+.rainbow::after {
+    background: black;
+    pointer-events: none;
+}
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}

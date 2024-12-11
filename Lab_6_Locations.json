@@ -170,5 +170,29 @@
         "type": "Point"
       },
       "id": 7
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Location Name": "MIT",
+        "Address": "Stata Center",
+        "Artist": "Lupe Fiasco",
+        "Song Name": "Rap Theory & Practice: an Introduction",
+        "Song Year": 2022,
+        "Verse": "\"Never stop learning because you don't have a choice.\n\nThat's the real thing. You're always going to learn.\n\nSo you might as well be very intentional about the things that you want to learn and then be very intentional about how you want to operationalize and cement those learnings in your own life.\"",
+        "Album": "No album",
+        "Year Referenced": 2022,
+        "Embed Link": "width=\"500\" height=\"282\" src=\"https://www.youtube.com/embed/zBHRsYhYb-o?si=SjChWSAMf9jUsG-9&amp;start=3295\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen",
+        "Media": "images/lupe-fiasco-portrait.jpg",
+        "Caption": "Source: MIT Department of Comparative Media Studies and Writing",
+        "Description": "Wasalu Jaco - the Grammy Award-winning rapper, entrepreneur, and community advocate better known as Lupe Fiasco - joined MIT in 2022 as part of MIT's MLK Visiting Professors and Scholars Program.\n\nJaco made Cambridge his home base as he engaged with the campus community through class visits and by teaching a special subjects course on rap in spring 2023.\n\nJaco's fellowship, officially started July 1, 2022 built on successful collaborations with MIT in previous years. In 2021, he was a visiting artist with MIT's Center for Art, Science & Technology, when he presented his work with the Society of Spoken Art, and later with Montfort ran a one-day student competition called \"Code Cypher\".\n\n\"MIT stands as the pinnacle of higher learning and execution for so many, including myself,\" Jaco said. \"I'm overjoyed to have the opportunity to be in the midst of some of the world’s greatest minds to offer my humble perspective and absorb new practices and principles.\""
+      },
+      "geometry": {
+        "coordinates": [
+          -71.0906712,
+          42.3615415
+        ],
+        "type": "Point"
+      }
     }
   ]

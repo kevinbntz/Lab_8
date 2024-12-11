@@ -1,16 +1,17 @@
+// import 'tippy.js/dist/tippy.css';
 // mapboxgl.accessToken = "pk.eyJ1Ijoia2Jlbml0ZXoiLCJhIjoiY20xanRkNDJjMDU2bDJpb2tkaTltN2R5NiJ9.LHpehjaR0swXOUvk8D5F9w"; // YOUR STYLE URL
 // mapboxgl.accessToken = "pk.eyJ1Ijoia2Jlbml0ZXoiLCJhIjoiY20xanRkNDJjMDU2bDJpb2tkaTltN2R5NiJ9.LHpehjaR0swXOUvk8D5F9w"; // HAND DRAWN
 mapboxgl.accessToken = "pk.eyJ1Ijoia2Jlbml0ZXoiLCJhIjoiY20xanRkNDJjMDU2bDJpb2tkaTltN2R5NiJ9.LHpehjaR0swXOUvk8D5F9w" // HAND DRAWN WITH LABELS
 
 // CREATE A NEW OBJECT CALLED MAP
 const map = new mapboxgl.Map({
-    container: "map", // container ID for the map object (this points to the HTML element)
+    container: "mapPage", // container ID for the map object (this points to the HTML element)
     // style: "mapbox://styles/kbenitez/cm1jtlviw004a01pdb4x7btn4", // YOUR STYLE URL
     // style: "mapbox://styles/kbenitez/cm2tclyo1000001pa7olh0953", // HAND DRAWN
     style: "mapbox://styles/kbenitez/cm4ekcxup00hf01rw5oiucyub", // HAND DRAWN WITH LABELS
     center: [-73.9442, 40.6482], // starting position [lng, lat] (google brooklyn)
     pitch: 60,
-    zoom: 11, // starting zoom (adjust it as you wish)
+    zoom: 12, // starting zoom (adjust it as you wish)
     projection: "globe", // display the map as a 3D globe
   });
 
@@ -95,6 +96,8 @@ map.on('load', () => {
     data: 'https://mapping-hip-hop-app-b84522a59d4d.herokuapp.com/api/geojson'
   });
 
+  // startTour();
+
   // Add a layer to display MongoDB data
   map.addLayer({
     id: 'mongoLayer',
@@ -111,6 +114,8 @@ map.on('load', () => {
     closeButton: false,
     closeOnClick: false
   });
+
+  // startTour();
 
   // Add mouseenter event to show the pop-up
   map.on('mouseenter', 'mongoLayer', (e) => {
@@ -178,6 +183,42 @@ map.on('load', () => {
     }
   });
 
+  // startTour();
+
+});
+
+// Navigation
+const homeButton = document.getElementById("home-button-div");
+const menuButton = document.getElementById("menu-button-div");
+const menuButtonH = document.getElementById("menu-button-divH");
+const menuButtonA = document.getElementById("menu-button-divA");
+const menu = document.getElementById("menu");
+const collage = document.getElementById("collage");
+
+function navigate(pageID) {
+  // Get all pages
+  const pages = document.querySelectorAll('.page');
+
+  // Hide all pages
+  pages.forEach((page) => {
+    page.classList.remove('active');
+  });
+
+  // Show the selected page
+  const activePage = document.getElementById(pageID);
+  if (activePage) {
+    activePage.classList.add('active');
+    window.location.hash = pageID; // Update the URL hash
+  }
+  map.resize();
+
+  menu.style.top = '-100%';
+}
+
+// Load the correct page based on the URL hash
+window.addEventListener('load', () => {
+  const hash = window.location.hash.substring(1); // Remove the # from the hash
+  navigate(hash || 'home'); // Default to 'home' if no hash is present
 });
 
 // Get static elements on information overlay by their ID
@@ -191,6 +232,7 @@ const contributeButton = document.getElementById('contribute');
 
 // Get static elements of player overlay
 const showPlayer = document.getElementById('showPlayer');
+// showPlayer.classList.add('rainbow');
 const musicPlayer = document.getElementById('musicPlayer');
 const embedDiv = document.getElementById('embedDiv');
 const hidePlayer = document.getElementById('hidePlayer');
@@ -199,6 +241,65 @@ const hidePlayer = document.getElementById('hidePlayer');
 const formContainer = document.getElementById('form');
 const formDiv = document.getElementById('formDiv');
 const closeForm = document.getElementById('closeForm');
+
+// Get static elements of guide overlay by their ID
+const guideOverlay = document.getElementById('guideOverlay');
+const tooltip = document.getElementById('tooltip');
+const tooltipText = document.getElementById('tooltip-text');
+const closeGuide = document.getElementById('closeGuide');
+const acceptGuide = document.getElementById('acceptGuide');
+
+const steps = [
+  { element: document.getElementById('showPlayer'), text:'Click here to access player'}
+]
+
+let currentStep = 0;
+
+// Function to start the tour
+function startTour() {
+  guideOverlay.classList.remove('hidden');
+  showStep(currentStep);
+}
+
+// Function to show a specific step
+function showStep(stepIndex) {
+  if (stepIndex >= steps.length) {
+    endTour();
+    return;
+  }
+  const step = steps[stepIndex];
+  const rect = step.element.getBoundingClientRect();
+  // featureHighlight(rect);
+  tooltipText.textContent = step.text;
+}
+
+// function featureHighlight(rect) {
+//   const spotlight = document.getElementsById('spotlight');
+//   spotlight.style.top = `${rect.top}px`;
+//   spotlight.style.left = `${rect.left}px`;
+//   // transparency.width = bbox.width;
+//   // transparency.height = bbox.height;
+//   // const top = bbox.top;
+//   // const right = bbox.right;
+//   // const bottom = bbox.bottom;
+//   // const left = bbox.left;
+//   // transparency.style.clip = `inset(${top}px ${right}px ${bottom}px ${left}px)`;
+//   // transparency.style.maskImage = `inset(${top} ${right} ${bottom} ${left})`;
+//   // guideOverlay.classList.add('transparent-section');
+// }
+
+// Function to go to the next step
+function nextStep() {
+  currentStep++;
+  showStep(currentStep);
+}
+
+// Function to end the tour
+function endTour() {
+ guideOverlay.classList.add('hidden');
+}
+
+closeGuide.addEventListener('click', nextStep);
 
 // Changing variables
 let prefillData = {};
@@ -242,7 +343,7 @@ map.on('click', 'mongoLayer', (e) => {
                               <p>${address}</p>`;
   lyricDiv.innerHTML = `<h4>${reference}</h4>
                            <img src="${media}" width="400" height="auto" />
-                           <p>${img_caption} </p>
+                           <small>${img_caption} </small>
                            <p>${verseEscaped || 'Unknown Lyrics'}</p>
                            <p>- ${artist}, "${title}"</p>`;
   descriptionDiv.innerHTML = `<p>${descEscaped || 'Description'}</p>`;
@@ -264,6 +365,8 @@ playerButton.addEventListener('click', () => {
   embedDiv.innerHTML = `<iframe `+ embedLink +` />`;
   showPlayer.classList.add('hide');
   musicPlayer.classList.add('visible');
+  homeButton.classList.add('hide-above');
+  menuButton.classList.add('hide-above');
 })
 
 // Contribute Button
@@ -278,6 +381,10 @@ contributeButton.addEventListener('click', () => {
   iframe.onload = () => {
     iframe.contentWindow.postMessage(prefillData, '*');
   };
+  // iframe.addEventListener('message', (event) => {
+  //   const data = event.data;
+  //   formDiv.innerHTML = `<h3>Thank you for your submission</h3>`;
+  // })  
   formContainer.classList.add('visible');
 })
 
@@ -294,6 +401,8 @@ closeForm.addEventListener('click', () => {
 // Show Music Player
 showPlayer.addEventListener('click', () => {
   showPlayer.classList.add('hide');
+  homeButton.classList.add('hide-above');
+  menuButton.classList.add('hide-above');
   musicPlayer.classList.add('visible');
 })
 
@@ -301,7 +410,136 @@ showPlayer.addEventListener('click', () => {
 hidePlayer.addEventListener('click', () => {
   musicPlayer.classList.remove('visible');
   showPlayer.classList.remove('hide');
+  homeButton.classList.remove('hide-above');
+  menuButton.classList.remove('hide-above');
 })
+
+menuButton.addEventListener('click', () => {
+  if (menu.style.top === '0%') {
+    menu.style.top = '-100%'; // Hide the menu
+  } else {
+    menu.style.top = '0%'; // Show the menu
+  }
+})
+
+menuButtonH.addEventListener('click', () => {
+  if (menu.style.top === '0%') {
+    menu.style.top = '-100%'; // Hide the menu
+  } else {
+    menu.style.top = '0%'; // Show the menu
+  }
+})
+
+menuButtonA.addEventListener('click', () => {
+  if (menu.style.top === '0%') {
+    menu.style.top = '-100%'; // Hide the menu
+  } else {
+    menu.style.top = '0%'; // Show the menu
+  }
+})
+
+homeButton.addEventListener('click', () => {
+  navigate('home');
+})
+
+function hideMenuFunc() {
+  if (menu.style.top === '0%') {
+    menu.style.top = '-100%'; // Hide the menu
+  } else {
+    menu.style.top = '0%'; // Show the menu
+  }
+}
+
+collage.addEventListener('click', () => {
+  navigate('mapPage');
+})
+
+
+// Search function
+const geocoder = new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken, // Required: Mapbox access token
+  mapboxgl: mapboxgl, // Required: Pass the mapbox-gl instance
+  marker: true, // Optional: Add a marker for the search result
+  placeholder: 'Search for places', // Optional: Placeholder text
+  proximity: { longitude: -73.9442, latitude: 40.6482 } // Optional: Bias search results near this location
+});
+
+// Add the geocoder to the map
+map.addControl(geocoder, 'bottom-right');
+
+// Listen for the `result` event to move the camera
+geocoder.on('result', (event) => {
+  const location = event.result.geometry.coordinates; // [longitude, latitude]
+
+  // Fly the camera to the selected location
+  map.flyTo({
+      center: location,
+      zoom: 12, // Adjust zoom level as needed
+      speed: 1.5, // Animation speed (1 is default, higher is faster)
+      curve: 1.2 // Animation curve (default is 1.42, lower is linear)
+  });
+
+});
+
+// Add the geolocate control to the map
+const geolocateControl = new mapboxgl.GeolocateControl({
+  positionOptions: {
+      enableHighAccuracy: true // Use high-accuracy location if available
+  },
+  trackUserLocation: true, // Keep tracking user location
+  showUserHeading: true // Show user orientation
+});
+
+map.addControl(geolocateControl, 'bottom-right');
+
+// Trigger geolocation on load
+// map.on('load', () => {
+//   geolocateControl.trigger(); // Automatically trigger geolocation
+// });
+
+// Geolocate on click
+geolocateControl.on('click', () => {
+  geolocateControl.trigger();
+});
+
+const defaultPosition = {
+  center: [-73.9442, 40.6482], // starting position [lng, lat] (google brooklyn)
+  zoom: 12,
+  bearing: 0,
+  pitch: 60,
+};
+
+class DefaultViewControl {
+  onAdd(map) {
+      this.map = map;
+
+      // Create a button element
+      const button = document.createElement('button');
+      button.className = 'mapboxgl-ctrl-icon mapboxgl-ctrl-default-view';
+      button.type = 'button';
+      button.title = 'Reset View';
+      button.innerHTML = '↺'; // Reset icon (Unicode character)
+
+      // Add a click event listener to reset the camera position
+      button.onclick = () => {
+          map.flyTo(defaultPosition); // Fly the camera to the default position
+      };
+
+      // Create a container for the control and append the button
+      const container = document.createElement('div');
+      container.className = 'mapboxgl-ctrl mapboxgl-ctrl-group';
+      container.appendChild(button);
+
+      return container;
+  }
+
+  onRemove() {
+      this.map = undefined; // Remove reference to the map instance
+  }
+};
+
+// Add the custom control to the map
+map.addControl(new DefaultViewControl(), 'bottom-right');
 
 
 // Close Overlay (deprecated)
