@@ -205,6 +205,7 @@ function navigate(pageID) {
   });
 
   // Show the selected page
+  // map.resize();
   const activePage = document.getElementById(pageID);
   if (activePage) {
     activePage.classList.add('active');
